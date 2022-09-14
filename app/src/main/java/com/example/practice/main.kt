@@ -3,6 +3,7 @@ package com.example.practice
 import java.lang.Integer.sum
 
 // 주석입니다.
+/* 주석이빈다. */
 
 class Person(firstName: String, lastName: String) {
     init {
@@ -19,8 +20,8 @@ fun main() {
     val asdf = "Text Box2"
     println(box1)
     println(asdf)
-   val number: Int? = null
-   val sumNumberStr = number?.let {
+    val number: Int? = null
+    val sumNumberStr = number?.let {
        "${sum(10, it)}"
    }.orEmpty()
     println(sumNumberStr)
