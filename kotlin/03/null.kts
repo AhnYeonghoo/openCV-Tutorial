@@ -20,3 +20,16 @@ println(number4)
  * - 하지만 실제로 null인 경우에는 NPE (Null Point Exception)이 발생할 수 있다.
  * - 결론 : 정말 100% 확신이 있는 경우가 아니면 사용하지 말자!
  */
+
+println(null + 3)
+
+if (null == 5) {
+    println("same")
+} else {
+    println("not same")
+}
+if (null == null) {
+    println("same")
+} else {
+    println("Not same")
+}
