@@ -29,3 +29,8 @@ var examScores = arrayOf<Int>(examScore1, examScore2, examScore3)
 
 val examScore4 = examScores.get(0)
 println(examScore4)
+
+/**
+ * [if the] index
+ * create by AhnYeonghoo
+ */
