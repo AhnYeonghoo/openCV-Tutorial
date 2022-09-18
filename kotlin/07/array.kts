@@ -3,6 +3,7 @@ var array2 = arrayOf<Int>(1, 2, 3, 4, 5)
 var array3 = arrayOf<Double>(1.0, 2.0, 3.0, 4.0, 5.0)
 var array4 = intArrayOf(1, 2, 3, 4, 5)
 
+
 var array5 = Array(10, { 0 })
 println(array5.get(0))
 println(array5.get(1))
