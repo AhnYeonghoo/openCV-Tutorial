@@ -170,3 +170,34 @@ println(
         killNth = 2
     )
 )
+
+fun dansu(number: Int): Unit {
+    val numbers = mutableListOf<Int>()
+    for (i in 1..9) {
+        numbers.add(number * i)
+    }
+    println(numbers)
+}
+dansu(3)
+
+fun splitNumbers(firstIntList: List<Int>, secondIntList: List<Int>): Map<String, List<Int>> {
+    val result = mutableMapOf<String, List<Int>>()
+    val totalIntList = mutableListOf<Int>()
+    totalIntList.addAll(firstIntList)
+    totalIntList.addAll(secondIntList)
+    val evenNumber = mutableListOf<Int>()
+    val oddNumber = mutableListOf<Int>()
+    totalIntList.forEach { number ->
+        if (number % 2 == 0) evenNumber.add(number)
+        else oddNumber.add(number)
+    }
+    result.put("짝수", evenNumber)
+    result.put("홀수", oddNumber)
+    return result
+}
+println(
+    splitNumbers(
+        listOf<Int>(1, 2, 3, 4, 5),
+        listOf<Int>(6, 7, 8, 9, 10)
+    )
+)
