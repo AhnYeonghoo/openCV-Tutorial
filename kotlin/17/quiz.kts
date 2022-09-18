@@ -38,35 +38,135 @@ fun returnHun(num: Int): Unit {
 }
 returnHun(50)
 
-//fun trueOrFalse(numbers: Array<Int>): String {
-//    val result = arrayOf(false, false, false, false, false, false, false, false, false, false)
-//    var i: Int = 0
-//    for (number in numbers) {
-//        if (number >= 80) result.set(i, true)
-//        else result.set(i, false)
-//        i++
-//    }
-//    return result.toString()
-//}
-//println(trueOrFalse(arrayOf(70, 80, 90, 70, 80, 90, 60, 70, 80, 90)))
-fun eat(num1: Int, num2: Int): Unit {
-    var number1 = num1
-    var number2 = num2
-    if (number2 >= number1) {
-        println("배가 부르다")
-        return
+fun trueOrFalse(numbers: List<Int>): Array<Boolean> {
+    val result = arrayOf(false, false, false, false, false, false, false, false, false, false)
+    var i: Int = 0
+    for (number in numbers) {
+        if (number >= 80) result.set(i, true)
+        else result.set(i, false)
+        i++
     }
-    do {
-        println("밥을 먹었다.")
-        number1++
-        if (number2 <= number1)  {
-            println("배가 부르다.")
-            break
-        }
-    } while (number2 > number1)
+    return result
 }
+
+val result2 = trueOrFalse(listOf<Int>(1, 2, 3, 4, 5, 90, 90, 90, 90, 90))
+result2.forEach {
+    println(it)
+}
+
+//fun eat(num1: Int, num2: Int): Unit {
+//    var number1 = num1
+//    var number2 = num2
+//    if (number2 >= number1) {
+//        println("배가 부르다")
+//        return
+//    }
+//    do {
+//        println("밥을 먹었다.")
+//        number1++
+//        if (number2 <= number1) {
+//            println("배가 부르다.")
+//            break
+//        }
+//    } while (number2 > number1)
+//}
 
 fun repeatText(repeatText: String, repeatNumber: Int): Unit {
     for (i in 1..repeatNumber) println(repeatText)
 }
-repeatText("repeatText", 3)
+//repeatText("repeatText", 3)
+
+fun sumUntil(givenNumber: Int): Int {
+    var sum: Int = 0
+    for (i in 1..givenNumber) sum += i
+    return sum
+}
+
+//println(sumUntil(5))
+fun sumSevenSum(): Int {
+    var sum: Int = 0
+    for (i in 1..100) {
+        if (i % 7 == 0) sum += i
+    }
+    return sum
+}
+//println(sumSevenSum())
+
+fun increaseOne(numberUnder: Int): Unit {
+    var number = numberUnder
+    while (number < 100) {
+        number++
+        println("Up")
+    }
+    return
+}
+
+//increaseOne(70)
+
+fun checkPassOrNot(examScores: List<Int>): BooleanArray {
+    val resultArray = BooleanArray(10, { false })
+    examScores.forEachIndexed { index, score ->
+        if (score >= 80) resultArray[index] = true
+    }
+    return resultArray
+}
+
+val result = checkPassOrNot(listOf<Int>(70, 71, 77, 77, 72, 89, 79, 99, 90, 99))
+result.forEach {
+    println(it)
+}
+println()
+println()
+
+fun findSumIsSixFromDice(): List<List<Int>> {
+    val resultList = mutableListOf<List<Int>>()
+    for (i in 1..6) {
+        for (j in 1..6) {
+            if (i + j == 6) resultList.add(listOf<Int>(i, j))
+        }
+    }
+    return resultList
+}
+println(findSumIsSixFromDice())
+
+fun eat2(eated: Int, eating: Int): Unit {
+    var eated1: Int = eated
+    var eating1: Int = eating
+    if (eated == eating) {
+        println("밥을 먹었다")
+        println("배가 부르다")
+        return
+    }
+    while (eated1 > eating1) {
+        println("밥을 먹었다")
+        eating1++
+        if (eated1 <= eating1) println("배가 부르다")
+    }
+}
+eat2(2, 2)
+
+fun killNthArmy(
+    firstArmy: List<String>,
+    secondArmy: List<String>,
+    killNth: Int
+): List<List<String>>? {
+    if (firstArmy.size < killNth || secondArmy.size < killNth) return null
+    val firstArmyTemp = mutableListOf<String>()
+    val secondArmyTemp = mutableListOf<String>()
+    for ((index, value) in firstArmy.withIndex()) {
+        if (index != killNth) firstArmyTemp.add(value)
+    }
+    for ((index, value) in secondArmy.withIndex()) {
+        if (index != killNth) secondArmyTemp.add(value)
+    }
+    val result = listOf<List<String>>(firstArmyTemp, secondArmyTemp)
+    return result
+}
+
+println(
+    killNthArmy(
+        firstArmy = listOf<String>("A", "B", "C", "D", "F"),
+        secondArmy = listOf<String>("A", "B", "C"),
+        killNth = 2
+    )
+)
