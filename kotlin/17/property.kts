@@ -1,28 +1,18 @@
-// getter/setter
 
-class Book() {
-    var title: String = "모름"
-        get() {
-            println("Gettet Call")
-            return field
+
+class Book2() {
+    lateinit var title: String
+
+    fun nextPage() {
+        if (::title.isInitialized == true) {
+            println("초기화 논 필요")
+        } else {
+            println("초기화  필요.")
         }
-        set(value: String) {
-            println("Setter Call")
-            field = value
-        }
-    var subtitle: String = "부제목"
-        get() {
-            return field
-        }
-        set(value: String) {
-            field = value
-        }
+        println("dd")
+    }
 }
+val book = Book2()
+book.title = "책이름"
+book.nextPage()
 
-val book = Book()
-println(book.title)
-book.title = "제목 변경"
-println(book.title)
-println(book.subtitle)
-book.subtitle = "부제목 변경"
-println(book.subtitle)
